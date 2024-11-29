@@ -69,7 +69,6 @@ export const verifyEmailApi = async (token) => {
 
 //func makes an api call to localhost:8080/user/login
 export const loginApi = async (username, password) => {
-
   //setting intial vakut of status to 0 and payload to "valkid request, try again later"
   let response = frameResponse();
 
@@ -83,12 +82,12 @@ export const loginApi = async (username, password) => {
       };
       response = frameResponse(1, payLoad);
     }
-} catch (err) {
+  } catch (err) {
     if (err.response) {
       response = frameResponse(0, err.response.data.message);
     }
     console.log(err);
-} finally {
+  } finally {
     return response;
-}
+  }
 };
