@@ -18,6 +18,8 @@ const Register = () => {
   }, []);
 
   const onFormSubmit = async (values) => {
+    console.log(values);
+
     if (!isFetching) {
       setIsFetching(true);
 
@@ -40,7 +42,6 @@ const Register = () => {
       }
       setIsFetching(false);
     }
-    console.log(values);
   };
 
   const RegisterSchema = Yup.object().shape({

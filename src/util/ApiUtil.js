@@ -66,3 +66,29 @@ export const verifyEmailApi = async (token) => {
     return response;
   }
 };
+
+//func makes an api call to localhost:8080/user/login
+export const loginApi = async (username, password) => {
+
+  //setting intial vakut of status to 0 and payload to "valkid request, try again later"
+  let response = frameResponse();
+
+  try {
+    const url = `${API_BASE_URL}/user/login`;
+    const apiResponse = await axios.post(url, { username, password });
+    if (apiResponse.status === 200) {
+      const payLoad = {
+        userData: apiResponse.data,
+        token: apiResponse.headers.authorization,
+      };
+      response = frameResponse(1, payLoad);
+    }
+} catch (err) {
+    if (err.response) {
+      response = frameResponse(0, err.response.data.message);
+    }
+    console.log(err);
+} finally {
+    return response;
+}
+};
