@@ -92,7 +92,6 @@ export const loginApi = async (username, password) => {
   }
 };
 
-
 export const forgotPasswordApi = async (email) => {
   let response = frameResponse();
 
@@ -102,12 +101,12 @@ export const forgotPasswordApi = async (email) => {
     if (apiResponse.status === 200) {
       response = frameResponse(1);
     }
-} catch (err) {
+  } catch (err) {
     if (err.response) {
       response = frameResponse(0, err.response.data.message);
     }
     console.log(err);
-} finally {
+  } finally {
     return response;
-}
+  }
 };
