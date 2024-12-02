@@ -66,7 +66,7 @@ const AppRoutes = () => {
         navigate("/app/completeProfile");
       }
     }
-  }, [userData]);
+  }, [userData, navigate]);
 
   if (isAuthenticated === null) return <LoadingIndicator />;
 
