@@ -9,7 +9,7 @@ const AddFeedField = ({ label, ...props }) => {
         {...field}
         {...props}
         className="w-full rounded-lg p-2 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"
-        onKeyPress={(e) => {
+        onKeyDown={(e) => {
           if (e.key === "Enter") e.preventDefault();
         }}
       ></textarea>
